@@ -7,10 +7,15 @@
 //
 
 #import "QiitaTableViewController.h"
+#import "QiitaDelegate.h"
+#import "QiitaDataSource.h"
 
 @interface QiitaTableViewController ()
 
 @property (nonatomic, copy) NSString *token;
+
+@property (nonatomic, strong) QiitaDelegate *qiitaDelegate;
+@property (nonatomic, strong) QiitaDataSource *qiitaDataSource;
 
 @end
 
@@ -28,12 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
@@ -55,9 +54,12 @@
                                NSLog(@"username: %@", obj[@"user"][@"url_name"]);
                                NSLog(@"url: %@", obj[@"url"]);
                                NSLog(@"created_at: %@", obj[@"created_at"]);
-
-                               [SVProgressHUD showSuccessWithStatus:@"読み込み完了しました"];
                            }
+
+                           [self setDelegateAndDataSourceWithStocks:responseObject];
+                           [self.tableView reloadData];
+                           
+                           [SVProgressHUD showSuccessWithStatus:@"読み込み完了しました"];
                        }
                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                            NSLog(@"Error: %@", error);
@@ -68,101 +70,22 @@
                   NSLog(@"Error: %@", error);
               }];
     }
+}
 
-//    NSString *path = [kQiitaUserAPIPath stringByAppendingString:@"sasata299"];
-//    [manager GET:path
-//      parameters:nil
-//         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//             NSLog(@"JSON: %@", responseObject);
-//             NSLog(@"Website URL: %@", [responseObject objectForKey:@"website_url"]);
-//         }
-//         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//             NSLog(@"Error: %@", error);
-//         }];
+- (void)setDelegateAndDataSourceWithStocks:(NSMutableArray *)stocks
+{
+    self.qiitaDelegate = [[QiitaDelegate alloc] init];
 
+    self.qiitaDataSource = [[QiitaDataSource alloc] init];
+    self.qiitaDataSource.stocks = stocks;
 
+    self.tableView.delegate = self.qiitaDelegate;
+    self.tableView.dataSource = self.qiitaDataSource;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
