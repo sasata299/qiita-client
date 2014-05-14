@@ -10,6 +10,8 @@
 
 @interface QiitaTableViewController ()
 
+@property (nonatomic, copy) NSString *token;
+
 @end
 
 @implementation QiitaTableViewController
@@ -32,6 +34,49 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    if (!self.token) {
+        
+        [manager POST:kQiitaAuthAPIPath
+           parameters:params
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  self.token = responseObject[@"token"];
+
+                  NSString *path = [kQiitaStockAPIPath stringByAppendingString:self.token];
+                  [manager GET:path
+                    parameters:nil
+                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                           for (id obj in responseObject) {
+                               NSLog(@"title: %@", obj[@"title"]);
+                               NSLog(@"username: %@", obj[@"user"][@"url_name"]);
+                               NSLog(@"url: %@", obj[@"url"]);
+                               NSLog(@"created_at: %@", obj[@"created_at"]);
+                           }
+                       }
+                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                           NSLog(@"Error: %@", error);
+                       }];
+
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"Error: %@", error);
+              }];
+    }
+
+//    NSString *path = [kQiitaUserAPIPath stringByAppendingString:@"sasata299"];
+//    [manager GET:path
+//      parameters:nil
+//         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//             NSLog(@"JSON: %@", responseObject);
+//             NSLog(@"Website URL: %@", [responseObject objectForKey:@"website_url"]);
+//         }
+//         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//             NSLog(@"Error: %@", error);
+//         }];
+
+
 }
 
 - (void)didReceiveMemoryWarning
