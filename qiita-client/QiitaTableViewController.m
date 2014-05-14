@@ -38,6 +38,8 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     if (!self.token) {
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+
         
         [manager POST:kQiitaAuthAPIPath
            parameters:params
@@ -53,6 +55,8 @@
                                NSLog(@"username: %@", obj[@"user"][@"url_name"]);
                                NSLog(@"url: %@", obj[@"url"]);
                                NSLog(@"created_at: %@", obj[@"created_at"]);
+
+                               [SVProgressHUD showSuccessWithStatus:@"読み込み完了しました"];
                            }
                        }
                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
