@@ -34,6 +34,8 @@
 {
     [super viewDidLoad];
 
+    [self.tableView registerNib:[UINib nibWithNibName:@"CustomCell" bundle:nil] forCellReuseIdentifier:@"MyCell"];
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     if (!self.token) {
@@ -49,13 +51,6 @@
                   [manager GET:path
                     parameters:nil
                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                           for (id obj in responseObject) {
-                               NSLog(@"title: %@", obj[@"title"]);
-                               NSLog(@"username: %@", obj[@"user"][@"url_name"]);
-                               NSLog(@"url: %@", obj[@"url"]);
-                               NSLog(@"created_at: %@", obj[@"created_at"]);
-                           }
-
                            [self setDelegateAndDataSourceWithStocks:responseObject];
                            [self.tableView reloadData];
                            
@@ -75,6 +70,7 @@
 - (void)setDelegateAndDataSourceWithStocks:(NSMutableArray *)stocks
 {
     self.qiitaDelegate = [[QiitaDelegate alloc] init];
+    self.qiitaDelegate.stocks = stocks;
 
     self.qiitaDataSource = [[QiitaDataSource alloc] init];
     self.qiitaDataSource.stocks = stocks;

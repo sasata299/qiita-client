@@ -25,6 +25,8 @@
 		820F16EE192322EA000D6DAB /* QiitaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F16ED192322EA000D6DAB /* QiitaTableViewController.m */; };
 		820F16F21923425E000D6DAB /* QiitaDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F16F11923425E000D6DAB /* QiitaDelegate.m */; };
 		820F16F51923426A000D6DAB /* QiitaDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F16F41923426A000D6DAB /* QiitaDataSource.m */; };
+		820F16F9192365FB000D6DAB /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820F16F8192365FB000D6DAB /* CustomCell.xib */; };
+		820F16FC192366C6000D6DAB /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F16FB192366C6000D6DAB /* CustomTableViewCell.m */; };
 		A54F2809EC2F4FC7A5A842C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C501C629D5E24E3EAC4F4520 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,9 @@
 		820F16F11923425E000D6DAB /* QiitaDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaDelegate.m; sourceTree = "<group>"; };
 		820F16F31923426A000D6DAB /* QiitaDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaDataSource.h; sourceTree = "<group>"; };
 		820F16F41923426A000D6DAB /* QiitaDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaDataSource.m; sourceTree = "<group>"; };
+		820F16F8192365FB000D6DAB /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		820F16FA192366C6000D6DAB /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		820F16FB192366C6000D6DAB /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		C501C629D5E24E3EAC4F4520 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +150,9 @@
 				820F16F11923425E000D6DAB /* QiitaDelegate.m */,
 				820F16F31923426A000D6DAB /* QiitaDataSource.h */,
 				820F16F41923426A000D6DAB /* QiitaDataSource.m */,
+				820F16F8192365FB000D6DAB /* CustomCell.xib */,
+				820F16FA192366C6000D6DAB /* CustomTableViewCell.h */,
+				820F16FB192366C6000D6DAB /* CustomTableViewCell.m */,
 				820F16CF192321FA000D6DAB /* Images.xcassets */,
 				820F16BB192321FA000D6DAB /* Supporting Files */,
 			);
@@ -260,6 +268,7 @@
 			files = (
 				820F16D0192321FA000D6DAB /* Images.xcassets in Resources */,
 				820F16BF192321FA000D6DAB /* InfoPlist.strings in Resources */,
+				820F16F9192365FB000D6DAB /* CustomCell.xib in Resources */,
 				820F16C8192321FA000D6DAB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +327,7 @@
 				820F16C5192321FA000D6DAB /* AppDelegate.m in Sources */,
 				820F16CB192321FA000D6DAB /* FirstViewController.m in Sources */,
 				820F16C1192321FA000D6DAB /* main.m in Sources */,
+				820F16FC192366C6000D6DAB /* CustomTableViewCell.m in Sources */,
 				820F16F21923425E000D6DAB /* QiitaDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

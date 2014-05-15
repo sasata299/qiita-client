@@ -10,4 +10,6 @@
 
 @interface QiitaDelegate : NSObject <UITableViewDelegate>
 
+@property (nonatomic, strong) NSMutableArray *stocks;
+
 @end

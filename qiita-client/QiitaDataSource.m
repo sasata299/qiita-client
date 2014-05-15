@@ -7,6 +7,7 @@
 //
 
 #import "QiitaDataSource.h"
+#import "CustomTableViewCell.h"
 
 @implementation QiitaDataSource
 
@@ -19,15 +20,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"Cell";
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-
-    cell.textLabel.text = self.stocks[indexPath.row][@"title"];
-
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+    cell.stock = self.stocks[indexPath.row];
     return cell;
 }
 
