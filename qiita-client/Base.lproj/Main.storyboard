@@ -92,7 +92,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="498"/>
         </scene>
-        <!--Qiita Table View Controller - Qiita-->
+        <!--Qiita Table View Controller - ストックした記事一覧-->
         <scene sceneID="6pa-Tz-LVz">
             <objects>
                 <tableViewController id="8T4-09-obd" customClass="QiitaTableViewController" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="kfj-mS-gvQ">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kfj-mS-gvQ" id="N6B-hK-dLH">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -115,14 +115,14 @@
                             <outlet property="delegate" destination="8T4-09-obd" id="0q2-gc-tJm"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Qiita" id="S2o-9v-nOC"/>
+                    <navigationItem key="navigationItem" title="ストックした記事一覧" id="8j7-50-cbh"/>
                     <connections>
                         <outlet property="tableView" destination="vrb-hE-dX7" id="UYv-2V-HEJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTB-y6-vpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="1181"/>
+            <point key="canvasLocation" x="1179" y="1181"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -137,12 +137,31 @@
                     <connections>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
-                        <segue destination="8T4-09-obd" kind="relationship" relationship="viewControllers" id="xfl-Kt-mSj"/>
+                        <segue destination="hrC-OQ-Olo" kind="relationship" relationship="viewControllers" id="xfl-Kt-mSj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
+        </scene>
+        <!--Navigation Controller - Qiita-->
+        <scene sceneID="wqX-wR-J0Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hrC-OQ-Olo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Qiita" id="S2o-9v-nOC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ztz-3L-Jzi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8T4-09-obd" kind="relationship" relationship="rootViewController" id="HQU-9U-rJD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6vP-ya-Gdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653" y="1181"/>
         </scene>
     </scenes>
     <resources>
