@@ -41,6 +41,8 @@
     if (!self.token) {
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
+        // Authentication params
+        NSDictionary *params = @{ @"url_name": @"YOUR_NAME", @"password": @"YOUR_PASSWORD" };
         
         [manager POST:kQiitaAuthAPIPath
            parameters:params
