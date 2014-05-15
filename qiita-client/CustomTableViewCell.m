@@ -35,6 +35,9 @@
 {
     _stock = stock;
 
+    NSString *userImageURL = self.stock[@"user"][@"profile_image_url"];
+    [self.userImage setImageWithURL:[NSURL URLWithString:userImageURL]
+                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     self.titleLabel.text = self.stock[@"title"];
 }
 

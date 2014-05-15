@@ -14,19 +14,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OtK-dH-V30">
-                        <rect key="frame" x="57" y="25" width="50" height="50"/>
+                        <rect key="frame" x="20" y="30" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="CoC-qE-rZl"/>
-                            <constraint firstAttribute="width" constant="50" id="bjY-NN-KJM"/>
+                            <constraint firstAttribute="height" constant="40" id="JPZ-GL-tAl"/>
+                            <constraint firstAttribute="width" constant="40" id="cWO-i2-K1N"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="F8y-06-Z3t">
-                        <rect key="frame" x="142" y="10" width="150" height="79"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="F8y-06-Z3t">
+                        <rect key="frame" x="78" y="10" width="222" height="79"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="1Q0-ME-DHb"/>
-                            <constraint firstAttribute="width" constant="150" id="Y9C-zD-Dt3"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="1Q0-ME-DHb"/>
+                            <constraint firstAttribute="width" constant="222" id="Y9C-zD-Dt3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -34,10 +34,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OtK-dH-V30" firstAttribute="leading" secondItem="Xgg-ru-PXB" secondAttribute="leading" constant="57" id="GCq-OE-Uve"/>
-                    <constraint firstItem="F8y-06-Z3t" firstAttribute="leading" secondItem="OtK-dH-V30" secondAttribute="trailing" constant="35" id="Tip-BW-wh1"/>
+                    <constraint firstItem="OtK-dH-V30" firstAttribute="leading" secondItem="Xgg-ru-PXB" secondAttribute="leading" constant="20" id="GCq-OE-Uve"/>
+                    <constraint firstAttribute="centerY" secondItem="OtK-dH-V30" secondAttribute="centerY" id="Pt0-Zr-JRh"/>
+                    <constraint firstItem="F8y-06-Z3t" firstAttribute="leading" secondItem="OtK-dH-V30" secondAttribute="trailing" constant="18" id="Tip-BW-wh1"/>
                     <constraint firstAttribute="bottom" secondItem="F8y-06-Z3t" secondAttribute="bottom" constant="10" id="dKd-fS-IA5"/>
-                    <constraint firstItem="OtK-dH-V30" firstAttribute="top" secondItem="Xgg-ru-PXB" secondAttribute="top" constant="25" id="nD8-ax-mGq"/>
                     <constraint firstItem="F8y-06-Z3t" firstAttribute="top" secondItem="Xgg-ru-PXB" secondAttribute="top" constant="10" id="rNv-0F-TZc"/>
                 </constraints>
             </tableViewCellContentView>
